@@ -26,6 +26,7 @@
 HR Data with over 22000 rows from the year 2000 to 2020.
 
 ### Key entities
+
 | Column Name | Description | 
 |-----------------|-------------|
 | [id] | Unique identifier for each employee (e.g. 00-0037846, 00-0041533, etc.) |
