@@ -1,7 +1,24 @@
 # Human Resources Database (SQL Analysis)
 
+## Table of Content
+- [Executive Summary](#executive-summary)
+- [Project Objectives](#project-objectives)
+- [Business Questions and Problems Solved](#business-questions-and-problems-solved)
+- [Dataset Overview](#dataset-overview)
+- [SQL Server Features and Techniques Used](#sql-server-features-and-techniques-used)
+- [Data Cleaning and Transformation](#data-cleaning-and-transformation)
+- [Findings and Business Value](#findings-and-business-value)
+- [Skills Demonstrated](#skills-demonstrated)
+
+## Executive Summary
+This project leverages SQL Server to transform raw Human Resources data into actionable workforce insights that support data-driven HR and strategic decision-making. Using a dataset of over 22,000 employee records spanning 2000–2020, the analysis focused on workforce demographics, employee tenure, turnover trends, and organizational growth.
+
+Significant effort was dedicated to data cleaning and validation, including standardizing inconsistent date formats, correcting invalid records, excluding underage employees, and filtering unrealistic termination dates to ensure analytical accuracy. A robust SQL workflow was implemented using CTEs, subqueries, window functions, and derived metrics to produce reliable and business-ready outputs.
+
+The analysis uncovered key insights such as workforce composition by gender, race, age group, department, and location; average employment duration for terminated employees; departmental turnover rates; and year-over-year changes in employee headcount. These findings provide visibility into retention risks, workforce diversity, hiring effectiveness, and long-term organizational trends.
 
 ## Project Objectives
+
 - Clean and standardize historical HR data for analysis readiness
 - Provide visibility into workforce demographics
 - Assess employee retention, turnover, and tenure patterns
@@ -9,7 +26,8 @@
 - Support strategic HR planning and operational decision-making
 - Demonstrate practical SQL proficiency in a real-world business context
 
-## Business Question and Problems Solved
+## Business Questions and Problems Solved
+
 - What is the gender breakdown of employees in the company?
 - What is the race/ethnicity breakdown of employees in the company?
 - What is the age distribution of employees in the company?
@@ -22,7 +40,11 @@
 - How has the company's employee count changed over time based on hire and term dates?
 - What is the tenure distribution for each department?
 
+[Jump to Findings and Business Value](#findings-and-business-value)
+
+
 ## Dataset Overview
+
 HR Data with over 22000 rows from the year 2000 to 2020.
 
 ### Key entities
@@ -48,6 +70,7 @@ HR Data with over 22000 rows from the year 2000 to 2020.
 - Some termdates were far into the future and were not included in the analysis(1599 records). The only term dates used were those less than or equal to the current date.
 
 ## SQL Server Features and Techniques Used
+
 - DDL (CREATE, ALTER, DROP)
 - DML (INSERT, UPDATE, DELETE)
 - Subqueries and CTEs
@@ -341,7 +364,7 @@ WHERE age >= 18
 GROUP BY department;
 ```
 
-## Finding and Business Value
+## Findings and Business Value
 
 - There are more male employees
 - White race is the most dominant while Native Hawaiian and American Indian are the least dominant.
@@ -363,12 +386,4 @@ GROUP BY department;
 - Query optimization
 - Data analysis
 - Problem-solving
-
-
-
-
-
-
-
-
 
