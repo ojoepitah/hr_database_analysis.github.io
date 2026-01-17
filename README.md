@@ -56,6 +56,12 @@ HR Data with over 22000 rows from the year 2000 to 2020.
 
 ## Data Cleaning and Transformation
 
+- Handling missing or invalid data
+- Data type conversions
+- Deduplication logic
+- Standardization (dates, currencies, text)
+- Derived columns or calculated fields
+
 ```sql
 -- SELECT * FROM hr;
 
@@ -126,23 +132,23 @@ SET age = timestampdiff(YEAR,birthdate,curdate());
 	
 -- SELECT * FROM HR;
 ```
-Handling missing or invalid data
-Data type conversions
-Deduplication logic
-Standardization (dates, currencies, text)
-Derived columns or calculated fields
 
 ## Key Queries for Business Insight
-```sql
--- DATA_ANALYSIS
 
+#### 1) What is the gender breakdown of employees in the company?
+   
+```sql
 -- 1. What is the gender breakdown of employees in the company?
 SELECT gender, COUNT(*) AS count
 FROM HR
 WHERE age >= 18
 	AND termdate IS NULL
 GROUP BY gender;
+```
 
+#### 2) What is the race/ethnicity breakdown of employees in the company?
+
+```sql
 -- 2. What is the race/ethnicity breakdown of employees in the company?
 SELECT race, count(*) as count
 FROM HR
@@ -150,14 +156,21 @@ WHERE age >= 18
 	AND termdate IS NULL
 GROUP BY race
 ORDER BY count DESC;
+```
 
+#### 3) What is the age distribution of employees in the company?
+
+```sql
 -- 3. What is the age distribution of employees in the company?
+--- Find the min and max age:
 SELECT 
 	min(age) AS Youngest,
     max(age) AS Oldest
 FROM HR
    WHERE age >= 18
-	AND termdate IS NULL; 
+	AND termdate IS NULL;
+
+--Youngest = 23, Oldest = 60
 
 SELECT
 	CASE
@@ -174,7 +187,11 @@ WHERE age >= 18
 	AND termdate IS NULL
 GROUP BY Age_group
 ORDER BY Age_group;
+```
 
+#### 4) How many employees work at headquarters versus remote locations?
+
+```sql
 -- 4. How many employees work at headquarters versus remote locations?
 -- SELECT * FROM HR;
 SELECT location, COUNT(*) as count
@@ -182,7 +199,11 @@ FROM HR
 WHERE age >= 18
 	AND termdate IS NULL
 GROUP BY location;
+```
 
+### 5) What is the average length of employment for employees who have been terminated?
+
+```sql
 -- 5. What is the average length of employment for employees who have been terminated?
 SELECT ROUND(
 			AVG(
@@ -192,7 +213,11 @@ FROM HR
 WHERE termdate <= CURDATE()
 	AND age >= 18
 	AND termdate IS NOT NULL;
+```
 
+#### 6) How does the gender distribution vary across departments and job titles?
+
+```sql
 -- 6. How does the gender distribution vary across departments and job titles?
 SELECT department, gender, count(*) AS count
 FROM HR
@@ -200,7 +225,11 @@ WHERE age >= 18
 	AND termdate IS NULL
 GROUP BY department, gender
 ORDER BY department;
+```
 
+#### 7) What is the distribution of job titles across the company?
+
+```sql
 -- 7. What is the distribution of job titles across the company?
 SELECT jobtitle, count(*) AS count
 FROM HR
@@ -208,7 +237,11 @@ WHERE age >= 18
 	AND termdate IS NULL
 GROUP BY jobtitle
 ORDER BY jobtitle DESC;
+```
 
+### 8) Which department has the highest turnover rate?
+
+```sql
 -- 8. Which department has the highest turnover rate?
 SELECT department,
 		total_count,
@@ -228,7 +261,9 @@ FROM (SELECT department,
 	) AS subquery
 ORDER BY termination_rate DESC;
 ----------------------------------------------------------------------
+
 -- Termination_PercentageRate
+
 SELECT department,
 		total_count,
         terminated_count,
@@ -247,7 +282,11 @@ FROM (SELECT department,
 	) AS subquery
 ORDER BY `% termination_rate` DESC;
 ----------------------------------------------------------------------
+```
 
+#### 9) What is the distribution of employees across locations by city and state?
+
+```sql
 -- 9. What is the distribution of employees across locations by city and state?
 SELECT location_state, COUNT(*) as count
 FROM HR
@@ -261,7 +300,11 @@ ORDER BY count DESC;
 -- Could'nt group by city as there are over 100 cities captured in the data which would make the map representation messy. 
 -- This is why an interative dashboard is would be a better representation of this dataset as this would provide opportunity for drilldown.
 ----------------------------------------------------------------------
+```
 
+### 10) How has the company's employee count changed over time based on hire and term dates?
+
+```sql
 -- 10. How has the company's employee count changed over time based on hire and term dates?
 SELECT
 	Year,
@@ -280,7 +323,11 @@ FROM(SELECT YEAR(hire_date) AS Year,
     GROUP BY Year
     ) AS subquery
 ORDER BY Year;
-            
+````
+
+#### 11) What is the tenure distribution for each department?
+
+```sql
 -- 11. What is the tenure distribution for each department?
 SELECT department, 
 		ROUND((AVG
@@ -295,25 +342,29 @@ GROUP BY department;
 ```
 
 ## Finding and Business Value
-There are more male employees
-White race is the most dominant while Native Hawaiian and American Indian are the least dominant.
-The youngest employee is 20 years old and the oldest is 57 years old
-Created five age groups (18-24, 25-34, 35-44, 45-54, 55-64). A large number of employees were between 25-34 followed by 35-44 while the smallest group was 55-64.
-A large number of employees work at the headquarters versus remotely.
-The average length of employment for terminated employees is around 7 years.
-The gender distribution across departments is fairly balanced but there are generally more male than female employees.
-The Marketing department has the highest turnover rate followed by Training. The least turn over rate are in the Research and development, Support and Legal departments.
-A large number of employees come from the state of Ohio.
-The net change in employees has increased over the years.
-The average tenure for each department is about 8 years with Legal and Auditing having the highest and Services, Sales and Marketing having the lowest.
+
+- There are more male employees
+- White race is the most dominant while Native Hawaiian and American Indian are the least dominant.
+- The youngest employee is 20 years old and the oldest is 57 years old
+- Created five age groups (18-24, 25-34, 35-44, 45-54, 55-64). A large number of employees were between 25-34 followed by 35-44 while the smallest group was 55-64.
+- A large number of employees work at the headquarters versus remotely.
+- The average length of employment for terminated employees is around 7 years.
+- The gender distribution across departments is fairly balanced but there are generally more male than female employees.
+- The Marketing department has the highest turnover rate followed by Training. The least turn over rate are in the Research and development, Support and Legal departments.
+- A large number of employees come from the state of Ohio.
+- The net change in employees has increased over the years.
+- The average tenure for each department is about 8 years with Legal and Auditing having the highest and Services, Sales and Marketing having the lowest.
 
 ## Skills Demonstrated
-SQL Server
-Database design
-Data modeling
-Query optimization
-Data analysis
-Problem-solving
+
+- SQL Server
+- Database design
+- Data modeling
+- Query optimization
+- Data analysis
+- Problem-solving
+
+
 
 
 
