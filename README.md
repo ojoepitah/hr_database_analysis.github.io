@@ -11,9 +11,9 @@
 - [Skills Demonstrated](#skills-demonstrated)
 
 ## Executive Summary
-This project leverages SQL Server to transform raw Human Resources data into actionable workforce insights that support data-driven HR and strategic decision-making. Using a dataset of over 22,000 employee records spanning 2000–2020, the analysis focused on workforce demographics, employee tenure, turnover trends, and organizational growth.
+This project leverages SQL Server to transform raw Human Resources data into actionable workforce insights that support data-driven HR and strategic decision-making. 
 
-Significant effort was dedicated to data cleaning and validation, including standardizing inconsistent date formats, correcting invalid records, excluding underage employees, and filtering unrealistic termination dates to ensure analytical accuracy. A robust SQL workflow was implemented using CTEs, subqueries, window functions, and derived metrics to produce reliable and business-ready outputs.
+Using a dataset of over 22,000 employee records spanning 2000–2020, the analysis focused on workforce demographics, employee tenure, turnover trends, and organizational growth. A robust SQL workflow was implemented using CTEs, subqueries, window functions, and derived metrics to produce reliable and business-ready outputs.
 
 The analysis uncovered key insights such as workforce composition by gender, race, age group, department, and location; average employment duration for terminated employees; departmental turnover rates; and year-over-year changes in employee headcount. These findings provide visibility into retention risks, workforce diversity, hiring effectiveness, and long-term organizational trends.
 
