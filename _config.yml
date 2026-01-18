@@ -1,6 +1,7 @@
 title: HR Dashboard Analysis
 logo: Q3.JPG
-description: Designed and queried a relational sales database using SQL Server. Implemented joins, CTEs, window functions, and time-based aggregations to analyse revenue trends, top-performing products, and customer behaviour.
+description: Analyzed over 22,000 HR records (2000–2020) using SQL Server to uncover workforce demographics, turnover trends, tenure patterns, and hiring dynamics. 
+Built optimized queries using CTEs, subqueries, and window functions to generate insights supporting HR strategy, retention analysis, and workforce planning.
 #show_downloads: true
 #google_analytics:
 aux_links:
