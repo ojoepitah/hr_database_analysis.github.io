@@ -1,7 +1,7 @@
 title: HR Dashboard Analysis
 logo: Sql_Code.JPG
 description: Analyzed over 22,000 HR records using SQL Server to uncover workforce demographics, turnover trends, tenure patterns, and hiring dynamics. 
-            Built optimized queries using CTEs, subqueries, and window functions to generate insights workforce planning.
+            Built optimized queries using CTEs, subqueries, and window functions to generate insights for workforce planning.
 #show_downloads: true
 #google_analytics:
 aux_links:
