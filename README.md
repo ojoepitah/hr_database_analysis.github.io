@@ -380,7 +380,6 @@ GROUP BY department;
 
 ## Skills Demonstrated
 
-- SQL Server
 - Database design
 - Data modeling
 - Query optimization
